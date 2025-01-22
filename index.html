@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bora Correr</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Bora Correr</span>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <!-- Tela Inicial -->
+        <section id="start-screen" class="screen active text-center">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="mb-4">Pronto/a para correr?</h2>
+                    <button id="start-run" class="btn btn-primary btn-lg">
+                        <i class="bi bi-play-fill"></i> Iniciar Corrida
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Histórico de Corridas -->
+            <div id="run-history" class="mt-4"></div>
+        </section>
+
+        <!-- Tela de Corrida -->
+        <section id="running-screen" class="screen">
+            <div class="card shadow-sm mb-3">
+                <div id="map" class="map-container"></div>
+                <div class="card-body p-0">
+                    <div class="row g-0 text-center stats-container">
+                        <div class="col-4 p-3">
+                            <div class="stat-label">Distância</div>
+                            <div id="distance" class="stat-value">0.00</div>
+                            <div class="stat-unit">km</div>
+                        </div>
+                        <div class="col-4 p-3 border-start border-end">
+                            <div class="stat-label">Tempo</div>
+                            <div id="time" class="stat-value">00:00:00</div>
+                        </div>
+                        <div class="col-4 p-3">
+                            <div class="stat-label">Pace</div>
+                            <div id="pace" class="stat-value">0:00</div>
+                            <div class="stat-unit">min/km</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button id="pause-run" class="btn btn-warning btn-lg">
+                    <i class="bi bi-pause-fill"></i> Pausar
+                </button>
+                <button id="resume-run" class="btn btn-success btn-lg d-none">
+                    <i class="bi bi-play-fill"></i> Continuar
+                </button>
+                <button id="finish-run" class="btn btn-danger btn-lg">
+                    <i class="bi bi-stop-fill"></i> Finalizar
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
