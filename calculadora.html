@@ -25,49 +25,15 @@
                     <i class="bi bi-calculator"></i> Calculadora de Pace
                 </h2>
 
-                <!-- Seleção de Esporte -->
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Tipo de Atividade</label>
-                    <select id="sport-type" class="form-select">
-                        <option value="running">Corrida</option>
-                        <option value="cycling">Ciclismo</option>
-                        <option value="swimming">Natação</option>
-                    </select>
-                </div>
-
-                <!-- Seleção de Unidade -->
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Unidade de Distância</label>
-                    <div class="btn-group w-100" role="group">
-                        <input type="radio" class="btn-check" name="unit" id="unit-km" value="km" checked>
-                        <label class="btn btn-outline-primary" for="unit-km">Quilômetros (km)</label>
-                        
-                        <input type="radio" class="btn-check" name="unit" id="unit-mi" value="mi">
-                        <label class="btn btn-outline-primary" for="unit-mi">Milhas (mi)</label>
-                    </div>
-                </div>
-
-                <!-- Modo de Cálculo -->
-                <div class="mb-4">
-                    <label class="form-label fw-bold">O que você quer calcular?</label>
-                    <select id="calc-mode" class="form-select">
-                        <option value="pace">Pace (a partir de Distância e Tempo)</option>
-                        <option value="time">Tempo Previsto (a partir de Distância e Pace)</option>
-                        <option value="distance">Distância (a partir de Tempo e Pace)</option>
-                    </select>
-                </div>
-
-                <hr>
-
-                <!-- Formulário: Modo Pace -->
-                <div id="form-pace" class="calc-form">
+                <!-- Formulário: Calcular Pace -->
+                <div class="calc-form">
                     <h5 class="mb-3">Calcular Pace</h5>
                     
                     <div class="mb-3">
-                        <label for="pace-distance" class="form-label">Distância</label>
+                        <label for="pace-distance" class="form-label">Distância (km)</label>
                         <div class="input-group">
                             <input type="number" id="pace-distance" class="form-control" step="0.01" min="0.01" placeholder="10">
-                            <span class="input-group-text" id="pace-distance-unit">km</span>
+                            <span class="input-group-text">km</span>
                         </div>
                     </div>
 
@@ -91,80 +57,6 @@
 
                     <button class="btn btn-primary btn-lg w-100" onclick="calculatePace()">
                         <i class="bi bi-calculator"></i> Calcular Pace
-                    </button>
-                </div>
-
-                <!-- Formulário: Modo Tempo -->
-                <div id="form-time" class="calc-form d-none">
-                    <h5 class="mb-3">Calcular Tempo Previsto</h5>
-                    
-                    <div class="mb-3">
-                        <label for="time-distance" class="form-label">Distância</label>
-                        <div class="input-group">
-                            <input type="number" id="time-distance" class="form-control" step="0.01" min="0.01" placeholder="10">
-                            <span class="input-group-text" id="time-distance-unit">km</span>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Pace Desejado</label>
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <input type="number" id="time-pace-minutes" class="form-control" min="0" placeholder="5" value="0">
-                                <small class="text-muted">Minutos</small>
-                            </div>
-                            <div class="col-6">
-                                <input type="number" id="time-pace-seconds" class="form-control" min="0" max="59" placeholder="0" value="0">
-                                <small class="text-muted">Segundos</small>
-                            </div>
-                        </div>
-                        <small class="text-muted">por <span id="time-pace-unit">km</span></small>
-                    </div>
-
-                    <button class="btn btn-primary btn-lg w-100" onclick="calculateTime()">
-                        <i class="bi bi-calculator"></i> Calcular Tempo
-                    </button>
-                </div>
-
-                <!-- Formulário: Modo Distância -->
-                <div id="form-distance" class="calc-form d-none">
-                    <h5 class="mb-3">Calcular Distância</h5>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Tempo Disponível</label>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <input type="number" id="dist-hours" class="form-control" min="0" placeholder="0" value="0">
-                                <small class="text-muted">Horas</small>
-                            </div>
-                            <div class="col-4">
-                                <input type="number" id="dist-minutes" class="form-control" min="0" max="59" placeholder="50" value="0">
-                                <small class="text-muted">Minutos</small>
-                            </div>
-                            <div class="col-4">
-                                <input type="number" id="dist-seconds" class="form-control" min="0" max="59" placeholder="0" value="0">
-                                <small class="text-muted">Segundos</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Pace Alvo</label>
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <input type="number" id="dist-pace-minutes" class="form-control" min="0" placeholder="5" value="0">
-                                <small class="text-muted">Minutos</small>
-                            </div>
-                            <div class="col-6">
-                                <input type="number" id="dist-pace-seconds" class="form-control" min="0" max="59" placeholder="0" value="0">
-                                <small class="text-muted">Segundos</small>
-                            </div>
-                        </div>
-                        <small class="text-muted">por <span id="dist-pace-unit">km</span></small>
-                    </div>
-
-                    <button class="btn btn-primary btn-lg w-100" onclick="calculateDistance()">
-                        <i class="bi bi-calculator"></i> Calcular Distância
                     </button>
                 </div>
 
@@ -194,7 +86,7 @@
                     <div id="result-distance" class="result-card mb-3">
                         <div class="stat-label">Distância</div>
                         <div class="stat-value" id="result-distance-value">--</div>
-                        <div class="stat-unit" id="result-distance-unit">km</div>
+                        <div class="stat-unit">km</div>
                     </div>
 
                     <div id="result-warning" class="alert alert-warning d-none" role="alert">
