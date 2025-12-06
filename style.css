@@ -67,6 +67,41 @@ main {
     transform: translateY(-2px);
 }
 
+/* Calculadora de Pace */
+.calc-form {
+    padding: 1rem 0;
+}
+
+.result-card {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.result-card .stat-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.result-card .stat-value {
+    font-size: 1.75rem;
+    margin: 0.5rem 0;
+}
+
+.result-card .stat-unit {
+    font-size: 0.875rem;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    opacity: 0.8;
+}
+
 /* Responsividade */
 @media (min-width: 768px) {
     .container {
